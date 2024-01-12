@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Buttons from './components/Buttons/Buttons';
+import Image from './components/Image/Image';
+import ProgressBar from './components/ProgressBar/ProgressBar';
 
 function App() {
+
+  function punch(){
+    setVie(vie-10)
+  }
+  function restart(){
+    setVie(100)
+  }
+  const [vie, setVie] = useState(100)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProgressBar vie = {vie} />
+      <Image vie = {vie}/>
+      <Buttons punch={punch} restart={restart} vie={vie} />
     </div>
   );
 }
